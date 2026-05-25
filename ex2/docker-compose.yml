@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:5
+    container_name: livros_mongodb
+    environment:
+      MONGO_INITDB_DATABASE: livrosDB
+    # SEM ports — MongoDB não está exposto ao exterior, só acessível na rede interna
+    networks:
+      - livros_network
+    volumes:
+      - mongo_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+  api-dados:
+    build:
+      context: ./api-dados
+      dockerfile: Dockerfile
+    container_name: livros_api
+    ports:
+      - "19020:19020"
+    environment:
+      PORT: 19020
+      MONGO_URL: mongodb://mongodb:27017/livrosDB
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - livros_network
+
+  interface:
+    build:
+      context: ./interface
+      dockerfile: Dockerfile
+    container_name: livros_interface
+    ports:
+      - "19021:19021"
+    environment:
+      PORT: 19021
+    depends_on:
+      - api-dados
+    networks:
+      - livros_network
+
+networks:
+  livros_network:
+    driver: bridge
+
+volumes:
+  mongo_data:

@@ -1,0 +1,36 @@
+db.jogos.countDocuments()
+
+
+db.jogos.countDocuments({ category: "Family" })
+
+
+db.jogos.distinct("autores.name").sort()
+
+
+db.jogos.aggregate([
+  { 
+    $group: { 
+      _id: "$year", 
+      totalJogos: { $sum: 1 } 
+    } 
+  },
+  { 
+    $sort: { _id: 1 } // Ordena pelo ano de forma crescente
+  }
+])
+
+
+db.jogos.aggregate([
+  { 
+    $unwind: "$editoras" // Desdobra o array de editoras
+  },
+  { 
+    $group: { 
+      _id: "$editoras.name", 
+      totalJogos: { $sum: 1 } 
+    } 
+  },
+  { 
+    $sort: { totalJogos: -1 } // Ordena do maior número de jogos para o menor
+  }
+])

@@ -1,0 +1,117 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API Jogos de Tabuleiro",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:17000"
+    }
+  ],
+  "paths": {
+    "/jogos": {
+      "get": {
+        "summary": "Listar jogos",
+        "parameters": [
+          {
+            "name": "editora",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de jogos"
+          }
+        }
+      },
+      "post": {
+        "summary": "Criar novo jogo",
+        "responses": {
+          "201": {
+            "description": "Jogo criado"
+          }
+        }
+      }
+    },
+    "/jogos/{id}": {
+      "get": {
+        "summary": "Obter jogo por ID",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Informação do jogo"
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualizar jogo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jogo atualizado"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletar jogo",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Jogo deletado"
+          }
+        }
+      }
+    },
+    "/autores": {
+      "get": {
+        "summary": "Listar autores",
+        "responses": {
+          "200": {
+            "description": "Lista de autores"
+          }
+        }
+      }
+    },
+    "/categorias": {
+      "get": {
+        "summary": "Listar categorias",
+        "responses": {
+          "200": {
+            "description": "Lista de categorias"
+          }
+        }
+      }
+    }
+  }
+}

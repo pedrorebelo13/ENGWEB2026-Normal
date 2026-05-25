@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: jogostabuleiro
+    volumes:
+      - mongodb_data:/data/db
+
+  api-dados:
+    build: ./api-dados
+    ports:
+      - "17000:17000"
+    environment:
+      MONGO_URL: mongodb://mongodb:27017/jogostabuleiro
+    depends_on:
+      - mongodb
+
+volumes:
+  mongodb_data:

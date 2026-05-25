@@ -1,0 +1,21 @@
+{
+  "name": "api-dados-lista",
+  "version": "1.0.0",
+  "description": "API de Dados - Gestor de Jogos de Tabuleiro",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "mongoose": "^7.0.0",
+    "morgan": "^1.10.1",
+    "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

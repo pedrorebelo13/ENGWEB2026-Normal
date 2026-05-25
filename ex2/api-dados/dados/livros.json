@@ -1,0 +1,44 @@
+[
+  {
+    "titulo": "Os Maias",
+    "autor": "Eça de Queirós",
+    "paginas": 714,
+    "genero": "Romance",
+    "lido": true
+  },
+  {
+    "titulo": "1984",
+    "autor": "George Orwell",
+    "paginas": 328,
+    "genero": "Ficção Distópica",
+    "lido": false
+  },
+  {
+    "titulo": "Ensaio sobre a Cegueira",
+    "autor": "José Saramago",
+    "paginas": 312,
+    "genero": "Ficção",
+    "lido": true
+  },
+  {
+    "titulo": "O Senhor dos Anéis - A Irmandade do Anel",
+    "autor": "J.R.R. Tolkien",
+    "paginas": 423,
+    "genero": "Fantasia",
+    "lido": false
+  },
+  {
+    "titulo": "O Principezinho",
+    "autor": "Antoine de Saint-Exupéry",
+    "paginas": 96,
+    "genero": "Fábula",
+    "lido": true
+  },
+  {
+    "titulo": "Duna",
+    "autor": "Frank Herbert",
+    "paginas": 412,
+    "genero": "Ficção Científica",
+    "lido": false
+  }
+]
