@@ -1,5 +1,4 @@
 # ENGWEB2026-Normal
-# ENGWEB2026 — Exame de Época Normal
 
 **UC:** Engenharia Web — 3º ano LEI  
 **Data:** 25 de Maio de 2026  
